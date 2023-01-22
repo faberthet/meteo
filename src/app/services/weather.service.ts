@@ -12,7 +12,7 @@ export class WeatherService {
   'forecast?latitude=48.11&longitude=-1.67'+
   '&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m'+
   '&daily=weathercode,temperature_2m_max,temperature_2m_min'+
-  '&timeformat=unixtime&timezone=Europe%2FBerlin'
+  '&current_weather=true&timeformat=unixtime&timezone=Europe%2FBerlin'
 
 // getWeather(lat:number,lon:number,timezone:any){
     /*const headerDict = {
@@ -27,8 +27,52 @@ export class WeatherService {
 // return this.http.get(this.url)
 // }
 
-getWeather(){
-  return this.http.get(this.url)
-}
+
+  getWeather(){
+    return this.http.get(this.url)
+  }
+
+  parseCurrentWeather({current_weather}:{current_weather:any}){
+  const {
+    temperature: currentTemp,
+    windspeed: windSpeed,
+    weatherCode: iconCode
+  } = current_weather
+    return {
+      currentTemp,
+      windSpeed,
+      iconCode
+    }
+  }
+
+  parseDailyWeather({daily}:{daily:any}){
+  const {
+    temperature_2m_max: {maxTemp},
+    temperature_2m_min: {minTemp},
+    weatherCode: {iconCode}
+  } = daily
+    return {
+      maxTemp,
+      minTemp,
+      iconCode
+    }
+  }
+
+  parseHourlyWeather({hourly}:{hourly:any}){
+  const {
+    temperature_2m: {temp},
+    windspeed_10m: {windSpeed},
+    weatherCode: {iconCode},
+    apparent_temperature:{flTemp},
+    precipitation:{precip}
+  } = hourly
+    return {
+      temp,
+      windSpeed,
+      iconCode,
+      flTemp,
+      precip
+    }
+  }
 
 }
