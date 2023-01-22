@@ -7,6 +7,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DayComponent } from './day/day.component';
 import { HoursComponent } from './hours/hours.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
+import { WeatherService } from './services/weather.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +20,8 @@ import { HoursComponent } from './hours/hours.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
