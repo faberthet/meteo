@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMeteo();
+
   }
 
   getMeteo(){
@@ -33,5 +34,8 @@ export class AppComponent implements OnInit {
     this.currentWeather=this.weather.parseCurrentWeather(data)
     this.dailyWeather=this.weather.parseDailyWeather(data)
     this.hourlyWeather=this.weather.parseHourlyWeather(data)
+    console.log(this.currentWeather)
+    console.log(this.dailyWeather)
+    console.log(this.hourlyWeather)
   }
 }

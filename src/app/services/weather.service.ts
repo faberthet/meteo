@@ -36,43 +36,39 @@ export class WeatherService {
   const {
     temperature: currentTemp,
     windspeed: windSpeed,
-    weatherCode: iconCode
+    weathercode: iconCode
   } = current_weather
     return {
-      currentTemp,
-      windSpeed,
+      currentTemp: Math.round(currentTemp),
+      windSpeed: Math.round(windSpeed),
       iconCode
     }
   }
+
+  
 
   parseDailyWeather({daily}:{daily:any}){
-  const {
-    temperature_2m_max: {maxTemp},
-    temperature_2m_min: {minTemp},
-    weatherCode: {iconCode}
-  } = daily
-    return {
-      maxTemp,
-      minTemp,
-      iconCode
-    }
+    return daily.time.map((time:number,index:number)=>{
+      return {
+        timestamp: time * 1000,
+        maxTemp: Math.round(daily.temperature_2m_max[index]),
+        minTemp: Math.round(daily.temperature_2m_min[index]),
+        iconCode: daily.weathercode[index]
+      }
+    })
   }
 
-  parseHourlyWeather({hourly}:{hourly:any}){
-  const {
-    temperature_2m: {temp},
-    windspeed_10m: {windSpeed},
-    weatherCode: {iconCode},
-    apparent_temperature:{flTemp},
-    precipitation:{precip}
-  } = hourly
-    return {
-      temp,
-      windSpeed,
-      iconCode,
-      flTemp,
-      precip
-    }
+  parseHourlyWeather({hourly, current_weather}:{hourly:any, current_weather:any}){
+    return hourly.time.map((time:number,index:number)=>{
+      return {
+        timestamp: time * 1000,
+        temp: Math.round(hourly.temperature_2m[index]),
+        flTemp: Math.round(hourly.apparent_temperature[index]),
+        iconCode: hourly.weathercode[index],
+        precipitation: hourly.precipitation[index],
+        windSpeed: Math.round(hourly.windspeed_10m[index])
+        
+      }
+    }).filter(({timestamp}:{timestamp:any})=> timestamp >= current_weather.time*1000)
   }
-
 }
