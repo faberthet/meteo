@@ -13,14 +13,13 @@ export class AppComponent implements OnInit {
   selectedDay!:string;
 
   currentWeather:any;
-  dailyWeather:any;
-  hourlyWeather:any;
+  dailyWeathers:any;
+  hourlyWeathers:any;
 
   constructor(private http:HttpClient, private weather:WeatherService){}
 
   ngOnInit(): void {
     this.getMeteo();
-
   }
 
   getMeteo(){
@@ -32,10 +31,14 @@ export class AppComponent implements OnInit {
 
   parseWeatherData(data:any){
     this.currentWeather=this.weather.parseCurrentWeather(data)
-    this.dailyWeather=this.weather.parseDailyWeather(data)
-    this.hourlyWeather=this.weather.parseHourlyWeather(data)
+    this.dailyWeathers=this.weather.parseDailyWeather(data)
+    this.hourlyWeathers=this.weather.parseHourlyWeather(data)
     console.log(this.currentWeather)
-    console.log(this.dailyWeather)
-    console.log(this.hourlyWeather)
+    console.log(this.dailyWeathers)
+    console.log(this.hourlyWeathers)
+  }
+
+  selectDay(day:string){
+    this.selectedDay=day;
   }
 }

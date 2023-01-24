@@ -1,7 +1,11 @@
 {{title}}
 
 <div class="days">
-  <app-day *ngFor="let day of days" [day]="day" ></app-day>
+  <app-day
+  *ngFor="let dailyWeather of dailyWeathers"
+  [dailyWeather]="dailyWeather"
+  (click)="selectDay(dailyWeather.day)" >
+</app-day>
 </div>
 <br><br>
 <app-hours [selectedDay]="selectedDay"></app-hours>

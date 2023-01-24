@@ -61,7 +61,7 @@ export class WeatherService {
   parseHourlyWeather({hourly, current_weather}:{hourly:any, current_weather:any}){
     return hourly.time.map((time:number,index:number)=>{
       return {
-        timestamp:time*1000,
+        time,
         day: new Date(time * 1000).toLocaleDateString('fr-FR', { weekday: 'long' }),
         hour: new Date(time * 1000).toLocaleTimeString('fr-FR', { hour: 'numeric' }).replace(/^0(?:0:0?)?/, ''),
         temp: Math.round(hourly.temperature_2m[index]),
@@ -71,6 +71,6 @@ export class WeatherService {
         windSpeed: Math.round(hourly.windspeed_10m[index])
         
       }
-    }).filter(({timestamp}:{timestamp:any})=> timestamp >= current_weather.time*1000)
+    }).filter(({time}:{time:number})=> time >= current_weather.time)
   }
 }
