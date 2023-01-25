@@ -14,7 +14,9 @@ export class AppComponent implements OnInit {
 
   currentWeather:any;
   dailyWeathers:any;
-  hourlyWeathers:any;
+  hourlyWeather:any;
+
+  selectedHourlyWeather:any;
 
   constructor(private http:HttpClient, private weather:WeatherService){}
 
@@ -25,20 +27,26 @@ export class AppComponent implements OnInit {
   getMeteo(){
     this.weather.getWeather().subscribe({
       error: error => console.log(error),
-      next: res => [console.log(res), this.parseWeatherData(res)]
+      next: res => [
+        console.log(res), 
+        this.parseWeatherData(res), 
+        this.selectedDay=this.dailyWeathers[0].day,
+        this.selectedHourlyWeather=this.hourlyWeather.filter(({day}:{day:string})=> day == this.selectedDay)
+      ]
     })
   }
 
   parseWeatherData(data:any){
     this.currentWeather=this.weather.parseCurrentWeather(data)
     this.dailyWeathers=this.weather.parseDailyWeather(data)
-    this.hourlyWeathers=this.weather.parseHourlyWeather(data)
+    this.hourlyWeather=this.weather.parseHourlyWeather(data)
     console.log(this.currentWeather)
     console.log(this.dailyWeathers)
-    console.log(this.hourlyWeathers)
+    console.log(this.hourlyWeather)
   }
 
   selectDay(day:string){
     this.selectedDay=day;
+    this.selectedHourlyWeather=this.hourlyWeather.filter(({day}:{day:string})=> day == this.selectedDay)
   }
 }
