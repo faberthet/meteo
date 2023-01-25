@@ -1,8 +1,12 @@
 <table>
     <tbody>
         <tr *ngFor="let hour of selectedHourlyWeather">
-           <td>{{hour.day}}</td>
-           <td></td> 
+           <td>{{hour.day}} {{hour.hour}}</td>
+           <td><fa-icon [icon]="toIcon(hour.iconCode)"></fa-icon></td> 
+           <td>Temp {{hour.temp}} &#8451;</td>
+           <td>Ressentie {{hour.flTemp}} &#8451;</td>
+           <td>Vent {{hour.windSpeed}} km/h</td>
+           <td>Precip {{hour.precipitation}} mm</td>
         </tr>
     </tbody>
 </table>
