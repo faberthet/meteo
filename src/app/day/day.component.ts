@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Icon_map } from '../icon-map';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-day',
@@ -8,6 +9,8 @@ import { Icon_map } from '../icon-map';
   styleUrls: ['./day.component.css']
 })
 export class DayComponent implements OnInit{
+faCloud=faCloud
+
   @Input() day!:string;
   @Input() dailyWeather!:any;
 
@@ -15,8 +18,8 @@ export class DayComponent implements OnInit{
   iconMap=Icon_map
 
   ngOnInit(): void {
-    this.iconName=this.iconMap.get(this.dailyWeather.iconCode)
-    this.day=this.dailyWeather.day
+    // this.iconName=this.iconMap.get(this.dailyWeather.iconCode)
+    // this.day=this.dailyWeather.day
   }
 
   

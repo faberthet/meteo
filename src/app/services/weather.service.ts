@@ -12,10 +12,14 @@ export class WeatherService {
   'forecast?latitude=48.11&longitude=-1.67'+
   '&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m'+
   '&daily=weathercode,temperature_2m_max,temperature_2m_min'+
-  '&current_weather=true&timeformat=unixtime&timezone=Europe%2FBerlin'
+  '&current_weather=true&timeformat=unixtime&timezone=Europe%2FParis'
 
+  // BaseUrl(){
+  //   let timezone= Intl.DateTimeFormat().resolvedOptions().timeZone
+  // }
 
   getWeather(){
+
     return this.http.get(this.url)
   }
 

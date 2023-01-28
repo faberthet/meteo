@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Icon_map } from '../icon-map';
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-hours',
@@ -9,6 +10,8 @@ import { Icon_map } from '../icon-map';
 export class HoursComponent implements OnInit {
 @Input() selectedDay!:string;
 @Input() selectedHourlyWeather!:any;
+
+faCloud=faCloud
 
 iconMap=Icon_map;
 

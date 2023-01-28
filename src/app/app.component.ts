@@ -2,12 +2,15 @@ import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
 
+import { faCloud } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  faCloud=faCloud
   title = 'meteo';
   days: string[]=["aujourd'hui","demain","mercredi","jeudi","vendredi","samedi","dimanche"]
   selectedDay!:string;
@@ -16,12 +19,12 @@ export class AppComponent implements OnInit {
   dailyWeathers:any;
   hourlyWeather:any;
 
-  selectedHourlyWeather:any;
+  selectedHourlyWeather!:any;
 
   constructor(private http:HttpClient, private weather:WeatherService){}
 
   ngOnInit(): void {
-    this.getMeteo();
+    // this.getMeteo();
   }
 
   getMeteo(){

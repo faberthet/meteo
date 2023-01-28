@@ -1,9 +1,24 @@
 .card{
     border: 1px solid black;
     border-radius: 5px;
-    padding: 3px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-content: center;
+}
+
+.day{
+    margin-bottom: 5px;
+}
+.icon{
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+.max-temp{
+color: red;
+}
+.min-temp{
+    font-size: 0.8rem;
+    color:rgb(0, 199, 199)
 }

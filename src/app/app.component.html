@@ -1,4 +1,4 @@
-{{title}}
+<!-- {{title}}
 
 <div class="days">
   <app-day
@@ -8,6 +8,34 @@
 </app-day>
 </div>
 <br><br>
+<app-hours  [selectedHourlyWeather]="selectedHourlyWeather" ></app-hours>
+
+<router-outlet></router-outlet> -->
+
+{{title}}
+
+<div class="current-weather">
+  <span><fa-icon [icon]="faCloud"></fa-icon></span>
+  <span>32 &#8451; </span> 
+</div>
+
+<div class="days">
+  <app-day>
+</app-day>
+<app-day>
+</app-day>
+<app-day>
+</app-day>
+<app-day>
+</app-day>
+<app-day>
+</app-day>
+<app-day>
+</app-day>
+<app-day>
+</app-day>
+</div>
+
 <app-hours  [selectedHourlyWeather]="selectedHourlyWeather" ></app-hours>
 
 <router-outlet></router-outlet>

@@ -1,4 +1,31 @@
-table,tr,td{
+/* table,tr{
     border: 1px solid black;
     border-collapse: collapse;
+    
+} */
+
+table{
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+    
+}
+
+
+tr:nth-child(2n){
+    background-color: aqua;
+}
+tr:nth-child(2n+1){
+    background-color: rgb(43, 161, 161);
+}
+
+td{
+    height: 3rem;
+    width: 100px;
+    text-align: center;
+}
+.icon{
+    font-size: 1.5rem;
 }

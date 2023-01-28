@@ -3,5 +3,18 @@
     grid-template-columns: repeat(auto-fit, 75px);
     gap: 0.5rem;
     justify-content: center; /* a tester sans .... */
+    margin-bottom: 40px;
+    
+}
+.current-weather{
+    
+    text-align: center;
+    margin: 10px;
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.current-weather>span{
+    margin-right: 15px;
     
 }
