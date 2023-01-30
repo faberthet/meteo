@@ -1,4 +1,8 @@
-<!-- {{title}}
+<div class="current-weather">
+  Rennes 
+  <span><fa-icon [icon]="faCloud"></fa-icon></span>
+  <span>{{currentWeather.currentTemp}} &#8451; </span> 
+</div>
 
 <div class="days">
   <app-day
@@ -10,15 +14,13 @@
 <br><br>
 <app-hours  [selectedHourlyWeather]="selectedHourlyWeather" ></app-hours>
 
-<router-outlet></router-outlet> -->
+<router-outlet></router-outlet>
 
-{{title}}
 
-<div class="current-weather">
-  <span><fa-icon [icon]="faCloud"></fa-icon></span>
-  <span>32 &#8451; </span> 
-</div>
 
+
+
+<!-- 
 <div class="days">
   <app-day>
 </app-day>
@@ -38,4 +40,4 @@
 
 <app-hours  [selectedHourlyWeather]="selectedHourlyWeather" ></app-hours>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { Icon_map } from '../icon-map';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 
@@ -18,8 +17,8 @@ faCloud=faCloud
   iconMap=Icon_map
 
   ngOnInit(): void {
-    // this.iconName=this.iconMap.get(this.dailyWeather.iconCode)
-    // this.day=this.dailyWeather.day
+     this.iconName=this.iconMap.get(this.dailyWeather.iconCode)
+     this.day=this.dailyWeather.day
   }
 
   

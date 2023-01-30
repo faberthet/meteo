@@ -16,7 +16,7 @@ faCloud=faCloud
 iconMap=Icon_map;
 
 ngOnInit(): void {
-  
+  console.log(this.selectedHourlyWeather)
 }
 
 toIcon(weatherCode:number):any{

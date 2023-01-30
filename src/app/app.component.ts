@@ -1,6 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WeatherService } from './services/weather.service';
+import { Icon_map } from './icon-map';
+
 
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 
@@ -15,16 +17,19 @@ export class AppComponent implements OnInit {
   days: string[]=["aujourd'hui","demain","mercredi","jeudi","vendredi","samedi","dimanche"]
   selectedDay!:string;
 
-  currentWeather:any;
+  currentWeather:any={}
   dailyWeathers:any;
   hourlyWeather:any;
 
   selectedHourlyWeather!:any;
 
+  iconName:any;
+  iconMap=Icon_map
+
   constructor(private http:HttpClient, private weather:WeatherService){}
 
   ngOnInit(): void {
-    // this.getMeteo();
+     this.getMeteo();
   }
 
   getMeteo(){
@@ -42,6 +47,7 @@ export class AppComponent implements OnInit {
   parseWeatherData(data:any){
     this.currentWeather=this.weather.parseCurrentWeather(data)
     this.dailyWeathers=this.weather.parseDailyWeather(data)
+    
     this.hourlyWeather=this.weather.parseHourlyWeather(data)
     console.log(this.currentWeather)
     console.log(this.dailyWeathers)

@@ -12,13 +12,20 @@ table{
     border-collapse: collapse;
     
 }
+tr{
+    border-bottom: 1px solid black; 
+    border-top: 1px solid black; 
+}
 
 
 tr:nth-child(2n){
-    background-color: aqua;
+    /* background-color: rgba(0, 255, 255, 0.295); */
+    
+
 }
 tr:nth-child(2n+1){
-    background-color: rgb(43, 161, 161);
+    /* background-color: rgba(43, 161, 161, 0.301); */
+background-color: rgba(0, 0, 0, 0.082);
 }
 
 td{

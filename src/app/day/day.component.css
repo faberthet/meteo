@@ -6,6 +6,7 @@
     flex-direction: column;
     text-align: center;
     justify-content: center;
+    
 }
 
 .day{
@@ -20,5 +21,6 @@ color: red;
 }
 .min-temp{
     font-size: 0.8rem;
-    color:rgb(0, 199, 199)
+     /* color:rgb(0, 199, 199) */
+    color: rgb(0, 167, 167);
 }
