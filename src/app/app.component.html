@@ -1,14 +1,14 @@
 <div class="current-weather">
   Rennes 
-  <span><fa-icon [icon]="faCloud"></fa-icon></span>
-  <span>{{currentWeather.currentTemp}} &#8451; </span> 
+  <span><fa-icon [icon]="iconName"></fa-icon></span>
+  <span>{{currentWeather['currentTemp']}} &#8451; </span> 
 </div>
 
 <div class="days">
   <app-day
-  *ngFor="let dailyWeather of dailyWeathers"
+  *ngFor="let dailyWeather of dailyWeathers; let index=index"
   [dailyWeather]="dailyWeather"
-  (click)="selectDay(dailyWeather.day)" >
+  (click)="selectDay(dailyWeather.day)" [index]="index">
 </app-day>
 </div>
 <br><br>

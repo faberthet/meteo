@@ -1,6 +1,6 @@
 .days{
     display: grid;
-    grid-template-columns: repeat(auto-fit, 85px);
+    grid-template-columns: repeat(auto-fit, 95px);
     gap: 0.5rem;
     justify-content: center; /* a tester sans .... */
     margin-bottom: 20px;

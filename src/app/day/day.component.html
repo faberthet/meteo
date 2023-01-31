@@ -1,5 +1,7 @@
 <div class="card mat-elevation-z4">
-<div class="day">{{day}}</div>
+<div class="day" *ngIf="index == 0">Aujourd'hui</div>
+<div class="day" *ngIf="index == 1">Demain</div>
+<div class="day" *ngIf="index != 0 && index != 1">{{day}}</div>
 <div class="icon"><fa-icon [icon]="iconName"></fa-icon></div> 
 <div class="max-temp">{{dailyWeather.maxTemp}} &#8451;</div>
 <div class="min-temp">{{dailyWeather.minTemp}} &#8451;</div> 

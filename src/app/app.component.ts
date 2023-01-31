@@ -4,7 +4,7 @@ import { WeatherService } from './services/weather.service';
 import { Icon_map } from './icon-map';
 
 
-import { faCloud } from '@fortawesome/free-solid-svg-icons';
+import { faCloud, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +17,14 @@ export class AppComponent implements OnInit {
   days: string[]=["aujourd'hui","demain","mercredi","jeudi","vendredi","samedi","dimanche"]
   selectedDay!:string;
 
-  currentWeather:any={}
+  //currentWeather:{[key: string]: number}={currentTemp:0,windSpeed:0,iconCode:0}
+  currentWeather:{currentTemp: number, windSpeed:number, iconCode:number}={currentTemp:0,windSpeed:0,iconCode:0}
   dailyWeathers:any;
   hourlyWeather:any;
 
   selectedHourlyWeather!:any;
 
-  iconName:any;
+  iconName:any=faSpinner;
   iconMap=Icon_map
 
   constructor(private http:HttpClient, private weather:WeatherService){}
@@ -39,7 +40,8 @@ export class AppComponent implements OnInit {
         console.log(res), 
         this.parseWeatherData(res), 
         this.selectedDay=this.dailyWeathers[0].day,
-        this.selectedHourlyWeather=this.hourlyWeather.filter(({day}:{day:string})=> day == this.selectedDay)
+        this.selectedHourlyWeather=this.hourlyWeather.filter(({day}:{day:string})=> day == this.selectedDay),
+        this.iconName=this.iconMap.get(this.currentWeather['iconCode'])
       ]
     })
   }

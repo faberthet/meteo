@@ -12,6 +12,8 @@ faCloud=faCloud
 
   @Input() day!:string;
   @Input() dailyWeather!:any;
+  @Input() index!:number;
+
 
   iconName:any;
   iconMap=Icon_map
