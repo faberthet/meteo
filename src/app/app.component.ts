@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   selectedDay!:string;
 
   //currentWeather:{[key: string]: number}={currentTemp:0,windSpeed:0,iconCode:0}
-  currentWeather:{currentTemp: number, windSpeed:number, iconCode:number}={currentTemp:0,windSpeed:0,iconCode:0}
+  currentWeather!:{currentTemp:number, windSpeed:number, iconCode:number}//={currentTemp:0,windSpeed:0,iconCode:0}
   dailyWeathers:any;
   hourlyWeather:any;
 
@@ -28,6 +28,9 @@ export class AppComponent implements OnInit {
   iconMap=Icon_map
 
   constructor(private http:HttpClient, private weather:WeatherService){}
+
+
+  isInit:boolean=false
 
   ngOnInit(): void {
      this.getMeteo();
@@ -41,7 +44,8 @@ export class AppComponent implements OnInit {
         this.parseWeatherData(res), 
         this.selectedDay=this.dailyWeathers[0].day,
         this.selectedHourlyWeather=this.hourlyWeather.filter(({day}:{day:string})=> day == this.selectedDay),
-        this.iconName=this.iconMap.get(this.currentWeather['iconCode'])
+        this.iconName=this.iconMap.get(this.currentWeather['iconCode']),
+        this.isInit=true
       ]
     })
   }

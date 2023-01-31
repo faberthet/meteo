@@ -1,4 +1,4 @@
-<div class="current-weather">
+<div class="current-weather" *ngIf="isInit">
   Rennes 
   <span><fa-icon [icon]="iconName"></fa-icon></span>
   <span>{{currentWeather['currentTemp']}} &#8451; </span> 
