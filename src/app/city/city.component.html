@@ -1,8 +1,12 @@
-<select required [(ngModel)]="selectedCityName" (change)="selectCity()" name="selection" id="selection" class="form-select"> 
+<!-- <mat-form-field> -->
+  <div class="selection">
+<label for="select"> Choisir une Ville:</label>
+<select required [(ngModel)]="selectedCityName" (change)="selectCity()" name="select" id="select" class="form-select"> 
     <!-- <option value="choice">choisir une section</option> -->
     <ng-container *ngFor="let city of cities">
       <option value="{{city.name}}">{{city.name}}</option>
     </ng-container>
   </select>
-
+</div>
+<!-- </mat-form-field> -->
   <!-- (change)="selectCity() -->
