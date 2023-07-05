@@ -8,19 +8,25 @@ export class WeatherService {
 
   constructor(private http:HttpClient) { }
 
-  url:string='https://api.open-meteo.com/v1/'+
-  'forecast?latitude=48.11&longitude=-1.67'+
-  '&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m'+
-  '&daily=weathercode,temperature_2m_max,temperature_2m_min'+
-  '&current_weather=true&timeformat=unixtime&timezone=Europe%2FParis'
+  // url:string='https://api.open-meteo.com/v1/'+
+  // 'forecast?latitude=48.11&longitude=-1.67'+
+  // '&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m'+
+  // '&daily=weathercode,temperature_2m_max,temperature_2m_min'+
+  // '&current_weather=true&timeformat=unixtime&timezone=Europe%2FParis'
 
   // BaseUrl(){
   //   let timezone= Intl.DateTimeFormat().resolvedOptions().timeZone
   // }
 
-  getWeather(){
+  getWeather(lat:string,long:string){
 
-    return this.http.get(this.url)
+   let url='https://api.open-meteo.com/v1/'+
+  'forecast?latitude='+ lat + '&longitude=' + long +
+  '&hourly=temperature_2m,apparent_temperature,precipitation,weathercode,windspeed_10m'+
+  '&daily=weathercode,temperature_2m_max,temperature_2m_min'+
+  '&current_weather=true&timeformat=unixtime&timezone=Europe%2FParis'
+
+    return this.http.get(url)
   }
 
   parseCurrentWeather({current_weather}:{current_weather:any}){

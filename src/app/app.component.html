@@ -1,5 +1,7 @@
+<app-city (test)="test($event)"></app-city>
+
 <div class="current-weather" *ngIf="isInit">
-  Rennes 
+  {{selectedCityName}}
   <span><fa-icon [icon]="iconName"></fa-icon></span>
   <span>{{currentWeather['currentTemp']}} &#8451; </span> 
 </div>
@@ -14,7 +16,7 @@
 <br><br>
 <app-hours  [selectedHourlyWeather]="selectedHourlyWeather" ></app-hours>
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 
 
 

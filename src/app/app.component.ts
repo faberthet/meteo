@@ -5,6 +5,7 @@ import { Icon_map } from './icon-map';
 
 
 import { faCloud, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { City } from './models/city';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,12 @@ export class AppComponent implements OnInit {
 
   selectedHourlyWeather!:any;
 
+  selectedCityName:string="Paris";
+
   iconName:any=faSpinner;
   iconMap=Icon_map
+
+
 
   constructor(private http:HttpClient, private weather:WeatherService){}
 
@@ -33,11 +38,18 @@ export class AppComponent implements OnInit {
   isInit:boolean=false
 
   ngOnInit(): void {
-     this.getMeteo();
+     this.getMeteo("48.87", "2.33");
   }
 
-  getMeteo(){
-    this.weather.getWeather().subscribe({
+  test(data:City){
+    console.log(data)
+    this.selectedCityName=data.name
+    this.getMeteo(data.lat,data.long)
+    
+  }
+
+  getMeteo(lat:string,long:string){
+    this.weather.getWeather(lat,long).subscribe({
       error: error => console.log(error),
       next: res => [
         console.log(res), 

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-autocomplete',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./autocomplete.component.css']
 })
 export class AutocompleteComponent {
+
+  options!:["bleu","rouge","jaune"];
+  filterOptions!:Observable<String[]>;
+  formControl= new FormControl();
+
 
 }

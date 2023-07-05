@@ -1,0 +1,8 @@
+<select required [(ngModel)]="selectedCityName" (change)="selectCity()" name="selection" id="selection" class="form-select"> 
+    <!-- <option value="choice">choisir une section</option> -->
+    <ng-container *ngFor="let city of cities">
+      <option value="{{city.name}}">{{city.name}}</option>
+    </ng-container>
+  </select>
+
+  <!-- (change)="selectCity() -->
