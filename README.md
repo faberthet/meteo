@@ -1,1 +1,1 @@
-url de l'application: https://d2wu6xv7elibw8.cloudfront.net/
+url de l'application: https://faberthet.github.io/meteo7/
